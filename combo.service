@@ -1,0 +1,8 @@
+[Unit]
+Description=combo-mon updater
+
+[Service]
+ExecStart=/usr/bin/python2 /home/eino/combo-mon/main.py
+
+[Install]
+WantedBy=multi-user.target
