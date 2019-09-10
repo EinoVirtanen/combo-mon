@@ -12,7 +12,7 @@ sports_combo_pb = 55
 
 #----------------------------------------------
 
-desktop_bar_size = 100
+desktop_bar_size = 70
 desktop_width = 80
 desktop_height = 60
 
@@ -168,13 +168,13 @@ def create_desktop_html():
 img#bat {
     opacity: 100;
     position: absolute;
-    top: 40px;
-    left: 890px;
-    width: 300px;
-    height: 100px;
+    top: 20px;
+    left: 450px;
+    width: 150px;
+    height: 40px;
 }
 """
-	write_beginning(desktop_html_path, desktop_bar_size, desktop_width, desktop_height, 1.0, 0.7, bat_logo)
+	write_beginning(desktop_html_path, desktop_bar_size, desktop_width, desktop_height, 1.0, 0.5, bat_logo)
 	write_progress_bars(desktop_html_path)
 	write_common_end(desktop_html_path)
 
