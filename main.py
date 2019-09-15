@@ -4,7 +4,7 @@
 
 trello_start =	"6.9.2019"
 keto_start =	"9.9.2019"
-sports_start =	"pause"
+sports_start =	"16.9.2019"
 
 # "pause", if on hold
 
@@ -189,7 +189,7 @@ def main():
 	while True:
 		create_desktop_html()
 		create_mobile_html()
-		sleep(3600)
+		sleep(6*3600)
 
 
 if __name__ == "__main__":
