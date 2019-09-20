@@ -4,7 +4,8 @@
 
 trello_start =	"6.9.2019"
 keto_start =	"9.9.2019"
-sports_start =	"16.9.2019"
+sports_start =	"pause"
+cn_start =      "20.9.2019"
 
 # "pause", if on hold
 
@@ -12,11 +13,11 @@ sports_combo_pb = 55
 
 #----------------------------------------------
 
-desktop_bar_size = 70
+desktop_bar_size = 60
 desktop_width = 80
 desktop_height = 60
 
-mobile_bar_size = 50
+mobile_bar_size = 35
 mobile_width = 90
 mobile_height = 80
 
@@ -161,6 +162,9 @@ def write_progress_bars(path):
 	if sports_start != "pause":
 		sports_combo = int(float((datetime.datetime.now()-datetime.datetime.strptime(sports_start, '%d.%m.%Y')).days))+1
 		write_progress_bar("sports.png", path, str(sports_combo), sports_combo_pb, "bg-warning")
+	if cn_start != "pause":
+		cn_combo = int(float((datetime.datetime.now()-datetime.datetime.strptime(cn_start, '%d.%m.%Y')).days))+1
+		write_progress_bar("cn.png", path, str(cn_combo), 21, "bg-info")
 
 
 def create_desktop_html():
