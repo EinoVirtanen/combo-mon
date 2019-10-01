@@ -4,8 +4,8 @@
 
 trello_start =	"6.9.2019"
 keto_start =	"9.9.2019"
-sports_start =	"pause"
-cn_start =      "20.9.2019"
+sports_start =	"30.9.2019"
+cn_start =      "pause"
 
 # "pause", if on hold
 
@@ -110,7 +110,7 @@ def write_beginning(path, size, width, height, width_adj=1.0, spacing_adj=1.0, b
 			height: var(--progress-bar-height);
 			width: var(--padding);
 			color: white;
-			text-align: right;
+			text-align: center;
 			font-size: {}px;
 			vertical-align: middle;
 		}}
@@ -135,7 +135,7 @@ def write_common_end(path):
 
 
 def write_progress_bar(icon, path, current, goal, color=" "):
-	if goal == "inf":
+	if goal == "&infin;":
 		width = 100
 	else:
 		width = int(round(100.0*float(current)/float(goal)))
@@ -151,20 +151,31 @@ def write_progress_bar(icon, path, current, goal, color=" "):
 	write_html(path, data)
 
 
+def get_color(ratio):
+    if ratio == 1:
+        return "bg-info"
+    elif ratio < 0.25:
+        return "bg-danger"
+    elif ratio >= 0.25 and ratio < 0.5:
+        return "bg-warning"
+    else:
+        return "bg-success"
+
+
 def write_progress_bars(path):
 	if trello_start != "pause":
 		trello_combo = int(float((datetime.datetime.now()-datetime.datetime.strptime(trello_start, '%d.%m.%Y')).days))+1
-		write_progress_bar("trello.png", path, str(trello_combo), "inf")
+		write_progress_bar("trello.png", path, str(trello_combo), "&infin;")
 	if keto_start != "pause":
 		keto_combo = int(float((datetime.datetime.now()-datetime.datetime.strptime(keto_start, '%d.%m.%Y')).days))+1
                 keto_goal = int(ceil(float(keto_combo)/30.0)*30.0)
-		write_progress_bar("keto.png", path, str(keto_combo), keto_goal, "bg-success")
+		write_progress_bar("keto.png", path, str(keto_combo), keto_goal, get_color(float(keto_combo)/keto_goal))
 	if sports_start != "pause":
 		sports_combo = int(float((datetime.datetime.now()-datetime.datetime.strptime(sports_start, '%d.%m.%Y')).days))+1
-		write_progress_bar("sports.png", path, str(sports_combo), sports_combo_pb, "bg-warning")
+		write_progress_bar("sports.png", path, str(sports_combo), sports_combo_pb, get_color(float(sports_combo)/sports_combo_pb))
 	if cn_start != "pause":
 		cn_combo = int(float((datetime.datetime.now()-datetime.datetime.strptime(cn_start, '%d.%m.%Y')).days))+1
-		write_progress_bar("cn.png", path, str(cn_combo), 21, "bg-info")
+		write_progress_bar("cn.png", path, str(cn_combo), 21, get_color(float(cn_combo)/21))
 
 
 def create_desktop_html():
