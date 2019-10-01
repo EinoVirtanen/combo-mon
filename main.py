@@ -5,7 +5,7 @@
 trello_start =	"6.9.2019"
 keto_start =	"9.9.2019"
 sports_start =	"30.9.2019"
-cn_start =      "1.10.2019"
+cn_start =      "2.10.2019"
 
 # "pause", if on hold
 
