@@ -14,7 +14,7 @@ sports_combo_pb = 55
 
 #----------------------------------------------
 
-desktop_bar_size = 60
+desktop_bar_size = 50
 desktop_width = 80
 desktop_height = 60
 
