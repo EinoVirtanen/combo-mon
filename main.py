@@ -5,7 +5,7 @@
 trello_start =	"6.9.2019"
 keto_start =	"9.9.2019"
 sports_start =	"30.9.2019"
-c_start =      "3.10.2019"
+c_start =      "5.10.2019"
 
 # "pause", if on hold
 
@@ -140,6 +140,8 @@ def write_progress_bar(icon, path, current, goal, color=" "):
 		width = 100
 	else:
 		width = int(round(100.0*float(current)/float(goal)))
+        if current == "0":
+                current = " "
 	data = """
 	<div class="progress-bar-wrapper">
 	<div class="goal">{}</div>
